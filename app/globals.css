@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: #DCF3EA;
+  color: #065F43;
+}
+
+::-moz-selection {
+  background-color: #DCF3EA;
+  color: #065F43;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color: #363C47;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-size: 17px;
+    line-height: 1.72;
+    color: #363C47;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+}
+
+.headline-display {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: clamp(36px, 5.5vw, 60px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.headline-lg {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: clamp(31px, 4vw, 47px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.headline-md {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: clamp(23px, 2.5vw, 29px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+.stat-number {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: clamp(44px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-feature-settings: "tnum" 1;
+}
+
+.body-lg {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: clamp(17.5px, 2vw, 20px);
+  font-weight: 400;
+  line-height: 1.72;
+  color: #5B6472;
+}
+
+.body-md {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.72;
+  color: #363C47;
+}
+
+.body-sm {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.label-lg {
+  font-family: var(--font-plus-jakarta), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.label-md {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.label-sm {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Card and container shadows */
+.shadow-card-resting {
+  box-shadow: 0 1px 3px rgba(13,17,23,.05), 0 6px 16px -10px rgba(13,17,23,.14);
+}
+
+.shadow-card-raised {
+  box-shadow: 0 2px 6px rgba(13,17,23,.04), 0 18px 44px -22px rgba(13,17,23,.22);
+}
+
+.shadow-card-float {
+  box-shadow: 0 4px 10px rgba(13,17,23,.05), 0 34px 70px -30px rgba(13,17,23,.28);
+}
+
+/* Scanline background for dark headline card */
+.scanline-bg {
+  background-color: #0D1117;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* Continuous ticker animation */
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: ticker 46s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Print Stylesheet for clean checklist download/printing */
+@media print {
+  header, footer, .no-print, .ticker-strip {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #0d1117 !important;
+    font-size: 12pt !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .checklist-item {
+    page-break-inside: avoid;
+    border: 1px solid #d6dbe3 !important;
+    margin-bottom: 8px !important;
+    padding: 12px !important;
+    box-shadow: none !important;
+  }
+}
